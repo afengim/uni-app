@@ -11,7 +11,6 @@
 		<link rel="shortcut icon" type="image/x-icon" href="//img-cdn-qiniu.dcloud.net.cn/uniapp/doc/icon.png?v=1556263038786">
 		<link rel="stylesheet" href="/static/vue.css">
 		<link rel="stylesheet" href="/static/index.min.css?v=1559299190792">
-		<script src="//js.cdn.aliyun.dcloud.net.cn/dev/js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 
 	<body>
@@ -25,7 +24,7 @@
 					'/(.*)/.*/_sidebar.md': '/$1/_sidebar.md',
 				},
 				name: 'uni-app',
-				// TODO 如需提交,必须改为 history 模式 
+				// TODO 如需提交,必须改为 history 模式
 				routerMode: 'history',
 				// routerMode: 'hash',
 				repo: false,
@@ -79,32 +78,17 @@
 				banner: ['/case'],
 				plugins: [
 					function(hook, vm) {
-						hook.ready(function() {
-							// 初始化并第一次加完成数据后调用，没有参数。
-							// console.log(document.getElementById('update-hock').getAttribute('href'));
-							// getAjax()
-						})
+					  hook.beforeEach(function(html) {
+					    console.log(vm)
+					    var url = '//github.com/dcloudio/uni-app/blob/master/docs/' + vm.route.file
+					    var editHtml = '发现错误？想参与编辑？[在 GitHub 上编辑此页面！](' + url + ')'
+
+					    return html +
+					      '<HR align=center color=#987cb9 SIZE=1>' +
+					      editHtml
+					  })
 					}
 				]
-				// adHref: '//ask.dcloud.net.cn/article/35700',
-				// adImg: '//img-cdn-qiniu.dcloud.net.cn/uniapp/doc/img/ad.png'
-			}
-			// docsify config end
-
-			function getAjax() {
-				$.ajax({
-					url: '//www.dcloud.io/docs/HBuilder.json' + '?timestamp=' + $.now(),
-					dataType: 'json',
-					success: function(res) {
-						var path = '//update.dcloud.net.cn/hbuilderx/changelog/'
-						var winConfig = res['win'][1];
-						path += winConfig.version + '.html';
-						$('#update-hock').attr('href',path);
-					},
-					error: function(err) {
-						console.error(err)
-					}
-				});
 			}
 		</script>
 		<script src="/static/docsify.min.js?v=1556263038786"></script>
