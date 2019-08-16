@@ -78,18 +78,14 @@
 				banner: ['/case'],
 				plugins: [
 					function(hook, vm) {
-					  hook.beforeEach(function(html) {
-					    console.log(vm)
-					    var url = '//github.com/dcloudio/uni-app/blob/master/docs/' + vm.route.file
-					    var editHtml = '发现错误？想参与编辑？[在 GitHub 上编辑此页面！](' + url + ')'
-
-					    return html +
-					      '<HR align=center color=#987cb9 SIZE=1>' +
-					      editHtml
-					  })
+						hook.afterEach(function(html) {
+							var url = '//github.com/dcloudio/uni-app/blob/master/docs' + vm.route.file
+							return html + '<hr align=center color=#987cb9 size=1>发现错误？想参与编辑？<a href=' + url + ' target=_blank>在 GitHub 上编辑此页面！</a>'
+						})
 					}
 				]
 			}
+			// docsify config end
 		</script>
 		<script src="/static/docsify.min.js?v=1556263038786"></script>
 		<script src="/static/search.min.js?v=1559299190620"></script>
