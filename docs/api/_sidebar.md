@@ -67,6 +67,7 @@
 * [Worker](api/worder.md)
 * 键盘
   * [uni.hideKeyboard](/api/key?id=hidekeyboard)
+  * [uni.onKeyboardHeightChange](/api/key?id=onkeyboardheightchange)
 * 界面
   * [交互反馈](api/ui/prompt.md)
   * [设置导航条](api/ui/navigationbar.md)
