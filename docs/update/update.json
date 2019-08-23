@@ -8,9 +8,9 @@
 		"url": "https://itunes.apple.com/cn/app/hello-uni-app/id1417078253?mt=8"
 	},
 	"Android":{
-		"version": "2.2.0",
+		"version": "2.2.2",
 		"title": "Hello uni-app更新",
-		"note": "首页选项卡页面，重构为 nvue，提升渲染速度",
-		"url": "http://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/HelloUniApp@v2.2.0.apk"
+		"note": "接入uni统计",
+		"url": "http://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/HelloUniApp@v2.2.2.apk"
 	}
 }
