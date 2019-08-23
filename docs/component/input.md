@@ -14,16 +14,16 @@
 |placeholder-class|String|"input-placeholder"|指定 placeholder 的样式类||
 |disabled|Boolean|false|是否禁用||
 |maxlength|Number|140|最大输入长度，设置为 -1 的时候不限制最大长度||
-|cursor-spacing|Number|0|指定光标与键盘的距离，单位 px 。取 input 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离|微信小程序、百度小程序|
+|cursor-spacing|Number|0|指定光标与键盘的距离，单位 px 。取 input 距离底部的距离和 cursor-spacing 指定的距离的最小值作为光标与键盘的距离|5+App、微信小程序、百度小程序、QQ小程序|
 |focus|Boolean|false|获取焦点。在 H5 平台聚焦后软键盘是否跟随弹出，取决于当前浏览器本身的规范（策略）。||
 |confirm-type|String|done|设置键盘右下角按钮的文字，仅在 type="text" 时生效。||
-|confirm-hold|Boolean|false|点击键盘右下角按钮时是否保持键盘不收起|App、微信小程序、支付宝小程序、百度小程序|
+|confirm-hold|Boolean|false|点击键盘右下角按钮时是否保持键盘不收起|5+App、微信小程序、支付宝小程序、百度小程序、QQ小程序|
 |cursor|Number||指定focus时的光标位置||
 |selection-start|Number|-1|光标起始位置，自动聚集时有效，需与selection-end搭配使用||
 |selection-end|Number|-1|光标结束位置，自动聚集时有效，需与selection-start搭配使用||
-|adjust-position|Boolean|true|键盘弹起时，是否自动上推页面|微信小程序、百度小程序|
+|adjust-position|Boolean|true|键盘弹起时，是否自动上推页面|5+App（softinputMode 为 adjustResize 时无效）、微信小程序、百度小程序、QQ小程序|
 |@input|EventHandle||当键盘输入时，触发input事件，event.detail = {value}|差异见下方 Tips|
-|@focus|EventHandle||输入框聚焦时触发，event.detail = { value, height }，height 为键盘高度|微信小程序（基础库 1.9.90 起）|
+|@focus|EventHandle||输入框聚焦时触发，event.detail = { value, height }，height 为键盘高度|仅微信小程序、5+App（HBuilderX 2.2.3） 、QQ小程序支持 height|
 |@blur|EventHandle||输入框失去焦点时触发，event.detail = {value: value}||
 |@confirm|EventHandle||点击完成按钮时触发，event.detail = {value: value}|&nbsp;|
 
@@ -99,34 +99,16 @@ this.$mp.page.$getAppWebview().setStyle({
 
 #### 关于软键盘弹出的逻辑说明
 
-App平台，软键盘弹出有adjustResize|adjustPan 两种模式
+App平台软键盘弹出有 adjustResize|adjustPan 两种模式，默认为 adjustPan 模式，小程序平台只支持 adjustPan 模式，H5平台因不同浏览器而异
 - adjustResize：软键盘弹出时，webview窗体高度挤压。屏幕高度=webview窗体高度+软键盘高度
 - adjustPan：软键盘弹出时，webview窗体高度不变，但窗体上推，以保证输入框不被软键盘盖住
 
-除了App平台，其他平台只支持adjustPan模式。App平台两种模式都支持，具体如下：
-- Android：默认为adjustResize。配置修改只能在manifest中修改，全局生效。如果改为adjustPan，无法顺利上推窗体，底部的input会被软键盘盖住
-- iOS平台：默认为adjustPan。配置可以在manifest中全局修改，也可以单独页面设置style。没有类似Android的局限。
+配置方式，在 pages.json 中配置 style
 
-如下为全局或页面的配置方式：
-- 在manifest中配置
 ```json
-	"app-plus": {
-		"softinput": {  
-			"mode": "adjustResize|adjustPan"    // 软键盘弹出模式   
-        }
-	}
-```
-
-- 如需要单个页面配置，则在pages.json中配置
-```json
-	{
-		"path": "pages/component/input/input",
-		"style": {
-			"app-plus":{
-				"softinputMode": "adjustResize" //仅iOS支持单个页面配置
-			}
-		}
-	}
+"app-plus": {
+	"softinputMode": "adjustResize"
+}
 ```
 
 App端开发聊天类应用时，目前推荐改为adjustResize模式。在hello uni-app的模板-聊天中有详细示例。

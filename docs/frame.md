@@ -172,6 +172,10 @@ if(process.env.NODE_ENV === 'development'){
 }
 ```
 
+如果你需要自定义更多环境，比如测试环境：
+- 假设只需要对单一平台配置，可以 package.json 中配置，在HBuilderX的运行和发行菜单里会多一个出来。[https://uniapp.dcloud.io/collocation/package](https://uniapp.dcloud.io/collocation/package)
+- 如果是针对所有平台配置，可以在 vue-config.js 中配置。[https://uniapp.dcloud.io/collocation/vue-config](https://uniapp.dcloud.io/collocation/vue-config)
+
 **快捷代码块**
 
 HBuilderX 中敲入代码块 `uEnvDev`、`uEnvProd` 可以快速生成对应 `development`、`production` 的运行环境判定代码。
@@ -909,10 +913,138 @@ slide-view.vue
 
 详细的小程序转uni-app语法差异可参考文档[https://ask.dcloud.net.cn/article/35786](https://ask.dcloud.net.cn/article/35786)。
 
+## WXS
+
+WXS是微信小程序的一套脚本语言，[详见](https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxs/)。
+经过我们的适配，uni-app可以使用wxs规范支持5+APP、微信小程序、QQ小程序
+
+**wxs示例**
+
+以下是一些使用 WXS 的简单示例，要完整了解 WXS 语法，请参考[WXS 语法参考](https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/)。
+
+```
+<template>
+	<view >
+		<!-- #ifdef APP-PLUS || MP-WEIXIN || MP-QQ -->
+		<view class="touchBox" @touchmove="test.touchmove"></view>
+		<view class="clickBox" :change:prop="test.propObserver" :prop="propValue" @click="setProp"></view>
+		<!-- #endif -->
+		<!-- #ifdef APP-PLUS || MP-WEIXIN || MP-QQ || MP-ALIPAY -->
+		<view class="textArea">{{test.msg}}</view>
+		<!-- #endif -->
+		<!-- #ifdef MP-BAIDU -->
+		<view class="textArea">{{test.msg()}}</view>
+		<!-- #endif -->
+		<!-- #ifdef APP-PLUS || MP-WEIXIN || MP-QQ || MP-ALIPAY || MP-BAIDU -->
+		<view class="textArea">{{test.getMax(array)}}</view>
+		<!-- #endif -->
+	</view>
+</template>
+<wxs module="test">
+	module.exports = {
+		msg:'Hello',
+		touchmove: function(event, instance) {
+			console.log('log event', JSON.stringify(event))
+		},
+		propObserver: function(newValue, oldValue, ownerInstance, instance) {
+			console.log('prop observer', newValue, oldValue)
+		},
+		getMax: function(array){
+			var max = undefined;
+			for (var i = 0; i < array.length; ++i) {
+				max = max === undefined ?
+					array[i] :
+					(max >= array[i] ? max : array[i]);
+			}
+			return max;
+		}
+	}
+</wxs>
+<filter module="test">
+	export default {
+		msg: function(){
+			return 'Hello';
+		},
+		getMax: function(array){
+			var max = undefined;
+			for (var i = 0; i < array.length; ++i) {
+				max = max === undefined ?
+					array[i] :
+					(max >= array[i] ? max : array[i]);
+			}
+			return max;
+		}
+	};
+</filter>
+<import-sjs module="test" src="./index.sjs"/>
+
+<script>
+	export default {
+		data() {
+			return {
+				propValue: 0,
+				array: [1, 2, 3, 4, 5, 1, 2, 3, 4]
+			}
+		},
+		methods: {
+			setProp() {
+				this.propValue = parseInt(Math.random()*1000);
+			}
+		}
+	}
+</script>
+
+<style>
+	.touchBox,.clickBox {
+		height: 200rpx;
+		width: 750rpx;
+	}
+	.touchBox {
+		background-color: #10AEFF;
+	}
+	.clickBox {
+		background-color: #3CC51F;
+	},
+	.textArea {
+		height: 200rpx;
+		text-align: center;
+		line-height: 200rpx;
+	}
+</style>
+```
+
+index.sjs内容
+
+```
+export default {
+	msg:'Hello',
+	getMax: function(array){
+		var max = undefined;
+		for (var i = 0; i < array.length; ++i) {
+			max = max === undefined ?
+				array[i] :
+				(max >= array[i] ? max : array[i]);
+		}
+		return max;
+	}
+};
+```
+
+**注意**
+
+- 支付宝小程序请使用sjs规范，[详见](https://docs.alipay.com/mini/framework/sjs)
+- 支付宝小程序sjs只能定义在.sjs 文件中。然后使用```<import-sjs>```标签引入
+- 支付宝小程序import-sjs的标签属性```name```、```from```被统一为了```module```、```src```以便后续实现多平台统一写法
+- 百度小程序中请使用Filter过滤器，[详见](https://smartprogram.baidu.com/docs/develop/framework/view_filter/)
+- 百度小程序Filter只能导出function函数
+- 暂不支持在 wxs、sjs、filter.js 中调用其他同类型文件
+- 编写wxs、sjs、filter.js 内容时必须遵循相应语法规范
+- wxs、filter.js既能内联使用又可以外部引入，sjs只能外部引入
+
 ## 致谢
 
 ```uni-app```的设计使用了 ```vue + 自定义组件``` 的模式；开发者使用```Vue```语法，了解```uni-app```的组件，就可以开发跨端App；感谢```Vue```团队！
 
 为了照顾开发者的已有学习积累，```uni-app```的组件和api设计，基本参考了微信小程序，学过微信小程序开发，了解```vue```，就能直接上手```uni-app```；感谢微信小程序团队！
 
-```uni-app``` 在小程序端，曾引用[mpvue](http://mpvue.com/)及[Megalo](https://megalojs.org/)，感谢美团点评技术团队、网易考拉团队的贡献!
+```uni-app``` 在小程序端，学习参考了[mpvue](http://mpvue.com/)及[Megalo](https://megalojs.org/)，感谢美团点评技术团队、网易考拉团队!

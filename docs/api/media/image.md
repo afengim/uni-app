@@ -1,5 +1,9 @@
 ### uni.chooseImage(OBJECT)
-从本地相册选择图片或使用相机拍照。另外选择和上传非图像、视频文件参考：[https://ask.dcloud.net.cn/article/35547](https://ask.dcloud.net.cn/article/35547)。
+从本地相册选择图片或使用相机拍照。
+
+另外选择和上传非图像、视频文件参考：[https://ask.dcloud.net.cn/article/35547](https://ask.dcloud.net.cn/article/35547)。
+
+App端如需要更丰富的相机拍照API（如直接调用前置摄像头），参考[plus.camera](https://www.html5plus.org/doc/zh_cn/camera.html)
 
 **OBJECT 参数说明**
 
@@ -130,7 +134,7 @@ uni.chooseImage({
 
 |5+App|H5|微信小程序|支付宝小程序|百度小程序|头条小程序|
 |:-:|:-:|:-:|:-:|:-:|:-:|
-|√|√|√|√|√|x|
+|√|√|√|√|√|√|
 
 **OBJECT 参数说明**
 

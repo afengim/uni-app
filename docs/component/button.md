@@ -10,7 +10,7 @@
 |type|String|default|按钮的样式类型|||
 |plain|Boolean|false|按钮是否镂空，背景色透明|||
 |disabled|Boolean|false|是否禁用|||
-|loading|Boolean|false|名称前是否带 loading 图标|||
+|loading|Boolean|false|名称前是否带 loading 图标||app-nvue 平台，在 ios 上为雪花，Android上为圆圈|
 |form-type|String||用于 ``<form>`` 组件，点击分别会触发 ``<form>`` 组件的 submit/reset 事件|||
 |open-type|String||开放能力|||
 |hover-class|String|button-hover|指定按钮按下去的样式类。当 hover-class="none" 时，没有点击态效果|||
@@ -63,6 +63,7 @@
 - 在小程序中，开发者可以登录 [小程序管理后台](https://mp.weixin.qq.com/) 后进入左侧菜单“客服反馈”页面获取反馈内容。
 - 在 App 中，开发者登录 [DCloud开发者中心](https://dev.dcloud.net.cn/) 后点击应用名称，进入左侧菜单“用户反馈”页面获取反馈内容。
 - 点击 share 分享按钮时会触发 [onShareAppMessage](/api/plugins/share)
+- 支付宝小程序平台，获取用户手机号时，建议先通过条件编译的方式，调用支付宝原生API，[参考](https://docs.alipay.com/mini/api/getphonenumber)
 
 
 **示例**

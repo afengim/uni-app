@@ -8,10 +8,7 @@
         <title>pcguide</title>
         <script type="text/javascript">
             function redirectToLaunch() {
-                var UA = navigator.userAgent.toLowerCase();
-                var isAndroid = UA.indexOf('android') > 0;
-                var isIOS = /iphone|ipad|ipod|ios/.test(UA);
-                if(isAndroid || isIOS) {
+                if (document.documentElement.clientWidth <= 1024) {
                     location.href = '/h5/';
                 }
             };
