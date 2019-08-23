@@ -8,9 +8,9 @@
 		"url": "https://itunes.apple.com/cn/app/hello-uni-app/id1417078253?mt=8"
 	},
 	"Android":{
-		"version": "2.2.2",
+		"version": "2.2.3",
 		"title": "Hello uni-app更新",
-		"note": "接入uni统计",
-		"url": "http://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/HelloUniApp@v2.2.2.apk"
+		"note": "接入uni统计\n解决微信自定义组件运行失败的Bug",
+		"url": "http://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/HelloUniApp@v2.2.3.apk"
 	}
 }
