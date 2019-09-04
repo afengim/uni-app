@@ -7,9 +7,10 @@
         <meta name=viewport content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
         <title>pcguide</title>
         <script type="text/javascript">
+						var viewPath = location.hash || '/h5/'
             function redirectToLaunch() {
                 if (document.documentElement.clientWidth <= 1024) {
-                    location.href = '/h5/';
+                    location.href = viewPath;
                 }
             };
             redirectToLaunch();
@@ -21,6 +22,10 @@
                     redirectToLaunch();
                 }, 500);
             });
+						
+						document.addEventListener('DOMContentLoaded', function() {
+								document.getElementById("h5-viwer").src = viewPath
+						}, false);
         </script>
         <style type="text/css">
             body {
@@ -82,7 +87,7 @@
             </div>
         </div>
         <div class="h5-viwer-box">
-            <iframe class="h5-viwer" src="/h5/" width="414" height="736"></iframe>
+            <iframe id="#h5-viwer" class="h5-viwer" src="/h5/" width="414" height="736"></iframe>
         </div>
     </body>
 
