@@ -7,7 +7,14 @@
         <meta name=viewport content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
         <title>pcguide</title>
         <script type="text/javascript">
-						var viewPath = location.hash?location.hash.slice(1):'/h5/'
+						var viewPath = location.hash
+						if (viewPath && viewPath.indexOf("index.html") > -1) {
+							viewPath = '/h5/'
+						}else if (viewPath){
+							viewPath = viewPath.slice(1)
+						} else {
+							viewPath = '/h5/'
+						}
             function redirectToLaunch() {
                 if (document.documentElement.clientWidth <= 1024) {
                     location.href = viewPath;
