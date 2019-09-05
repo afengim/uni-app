@@ -114,8 +114,9 @@
      * @param ev
      */
     function preventMouseEvents(ev) {
-        ev.preventDefault();
-        ev.stopPropagation();
+				//注释以启用鼠标事件
+        //ev.preventDefault();
+        //ev.stopPropagation();
     }
 
     /**
