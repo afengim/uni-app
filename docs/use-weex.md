@@ -18,7 +18,7 @@
 - 前端控件无法覆盖原生控件的问题。在nvue下，都是原生控件，覆盖map、video等不需要cover-view（如需要发布到小程序，仍然推荐写cover-view）
 - 同样因为层级问题得到解决，nvue可以实现video内嵌到swiper中，以实现抖音式视频滑动切换，例子见[插件市场](https://ext.dcloud.net.cn/plugin?id=664)；nvue的视频全屏后，仍然可以通过cover-view实现内容覆盖，比如增加文字标题、分享按钮。
 - nvue下有live-pusher组件，和小程序对齐。而vue页面下使用直播，需在条件编译里单独调用plus.video的API。
-- nvue下的map组件，小程序对齐。而vue页面的map组件有一些差异。
+- App端nvue文件的map和小程序拉齐度更高。vue里的map则与plus.map功能一致，和小程序的地图略有差异。
 - App端实现粘性布局，比如滚动吸顶，则nvue才能保证高性能，例子见[插件市场](https://ext.dcloud.net.cn/plugin?id=715)
 
 此外，App端，vue页面上也可以覆盖subnvue（一种非全屏的nvue页面覆盖在webview上），以解决App上的原生控件层级问题。[详见](https://ask.dcloud.net.cn/article/35948)
@@ -292,13 +292,19 @@ globalEvent.addEventListener("plusMessage", e => {
 
 ## vue 和 nvue 共享的变量和数据
 除了通信事件，vue 和 nvue 页面之间还可以共享变量和存储。
-但注意nvue不支持vuex，uni-app提供的共享变量和数据的方案如下：
+uni-app提供的共享变量和数据的方案如下：
 
-1. uni.storage
+
+1. vuex
+自```HBuilderX 2.2.5-alpha```起，nvue支持vuex
+
+**注意：**不支持直接引入`store`使用，可以使用`mapState`、`mapGetters`、`mapMutations`等辅助方法或者使用`this.$store`
+
+2. uni.storage
 vue和nvue页面可以使用相同的`uni.storage`存储。这个存储是持久化的。
 比如登陆状态可以保存在这里。
 
-2. globalData
+3. globalData
 小程序有globalData机制，这套机制在uni-app里也可以使用，全端通用。
 在`App.vue`文件里定义globalData，如下：
 ```html
