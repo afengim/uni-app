@@ -1,0 +1,16 @@
+{
+	"name": "Hello News",
+	"appid":"__UNI__7AB0D05",
+	"iOS":{
+		"version": "1.0.7",
+		"title": "Hello News更新",
+		"note": "修复下拉刷新Bug",
+		"url": "https://www.pgyer.com/uni-news"
+	},
+	"Android":{
+		"version": "1.0.7",
+		"title": "Hello News更新",
+		"note": "修复下拉刷新Bug",
+		"url": "https://img-cdn-qiniu.dcloud.net.cn/uniapp/news@v1.0.7.apk"
+	}
+}
