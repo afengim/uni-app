@@ -10,7 +10,7 @@
 	"Android":{
 		"version": "2.2.5",
 		"title": "Hello uni-app更新",
-		"note": "接入uni统计\n解决微信自定义组件运行失败的Bug",
+		"note": "社区增加网络状态检测\n更新示例，增加地图API、全屏滑动视频",
 		"url": "http://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/HelloUniApp@v2.2.5.apk"
 	}
 }
