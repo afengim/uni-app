@@ -50,10 +50,12 @@
 			</div>
 		</div>
 		<!-- 微信小程序 JS-SDK 如果不需要兼容微信小程序，则无需引用此 JS 文件。 -->
-		<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+		<!-- <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script> -->
 		<script type="text/javascript">
 			if (/QQ/i.test(navigator.userAgent) && /miniProgram/i.test(navigator.userAgent)) {
 				document.write('<script type="text/javascript" src="https://qqq.gtimg.cn/miniprogram/webview_jssdk/qqjssdk-1.0.0.js"><\/script>');
+			} else {
+				document.write('<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"><\/script>');
 			}
 		</script>
 		<!-- 支付宝小程序的 JS-SDK 防止 404 需要动态加载，如果不需要兼容支付宝小程序，则无需引用此 JS 文件。 -->
@@ -73,7 +75,7 @@
 			}
 		</script>
 		<!-- uni 的 SDK -->
-		<script type="text/javascript" src="https://js.cdn.aliyun.dcloud.net.cn/dev/uni-app/uni.webview.1.5.1.js"></script>
+		<script type="text/javascript" src="https://js.cdn.aliyun.dcloud.net.cn/dev/uni-app/uni.webview.1.5.2.js"></script>
 		<script type="text/javascript">
 			document.addEventListener('UniAppJSBridgeReady', function() {
 				document.querySelector('.btn-list').addEventListener('click', function(evt) {
