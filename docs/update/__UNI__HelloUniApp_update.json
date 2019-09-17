@@ -8,9 +8,9 @@
 		"url": "https://itunes.apple.com/cn/app/hello-uni-app/id1417078253?mt=8"
 	},
 	"Android":{
-		"version": "2.2.5",
+		"version": "2.2.6",
 		"title": "Hello uni-app更新",
-		"note": "社区增加网络状态检测\n更新示例，增加地图API、全屏滑动视频",
-		"url": "http://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/HelloUniApp@v2.2.5.apk"
+		"note": "优化不显示的Tab页面，释放渲染内存占用，提升窗体动画和页面滚动的平滑度\n优化 cover-view 组件示例，支持在视频全屏界面覆盖遮罩物",
+		"url": "http://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/HelloUniApp@v2.2.6.apk"
 	}
 }
