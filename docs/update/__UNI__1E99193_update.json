@@ -2,9 +2,9 @@
 	"name": "Hello News",
 	"appid":"__UNI__1E99193",
 	"iOS":{
-		"version": "1.0.7",
+		"version": "1.0.8",
 		"title": "Hello News更新",
-		"note": "",
+		"note": "适配 iOS13",
 		"url": "https://www.pgyer.com/uni-news"
 	},
 	"Android":{
