@@ -127,9 +127,9 @@ uni.showToast({
 ![debug](//img-cdn-qiniu.dcloud.net.cn/uniapp/doc/csdndebug-window.png)
 
 #### console.log打日志
-console.log()是我们日常开发最常用的调试方法，HBuilderX中当然也不能少。根据上一步，启动完成debug窗口后，调用console.log()方法就可以看到打印的内容了。如下图：
+console.log是我们日常开发最常用的调试方法，HBuilderX中当然也不能少。根据上一步，启动完成debug窗口后，调用console.log方法就可以看到打印的内容了。如下图：
 
-![debug](//img-cdn-qiniu.dcloud.net.cn/uniapp/doc/debug-console.jpg)
+![debug](//img-cdn-qiniu.dcloud.net.cn/uniapp/doc/debug-console-new.jpg)
 
 App端也提供真机运行的console.log日志输出，运行到真机或模拟器时，不用点debug按钮，操作手机，会在HBuilderX的控制台直接输出日志。
 
@@ -146,6 +146,7 @@ App端也提供真机运行的console.log日志输出，运行到真机或模拟
 
 #### 断点同步
 HBuilderX还有一个强大的功能，那就是可以直接在编辑器中打断点，断点会自动同步到调试工具中。
+
 操作步骤：只需要在需要打断点打代码部分，右击，就会出来同步断点到调试器，然后点击就好了。下面就是演示图：
 
 ![debug](//img-cdn-qiniu.dcloud.net.cn/uniapp/doc/debug-console-gif.gif)
