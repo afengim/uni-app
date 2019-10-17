@@ -22,7 +22,7 @@ main {
 }
 
 .markdown-section {
-    max-width: 960px;
+    max-width: 1200px;
 }
 
 .markdown-section tr th {
@@ -1096,7 +1096,7 @@ a.contact-item {
 	img{
 		cursor: pointer;
 	}
-  
+
   .uniapp-home-content {
     padding: 0 0px;
   }
@@ -1135,6 +1135,3 @@ a.contact-item {
         margin: 0 4px;
     }
 }
-
-
-
