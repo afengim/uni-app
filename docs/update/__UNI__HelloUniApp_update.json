@@ -8,9 +8,9 @@
 		"url": "https://itunes.apple.com/cn/app/hello-uni-app/id1417078253?mt=8"
 	},
 	"Android":{
-		"version": "2.3.2",
+		"version": "2.3.7",
 		"title": "Hello uni-app更新",
-		"note": "优化社区首页",
-		"url": "http://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/HelloUniApp@v2.3.2.apk"
+		"note": "优化tabbar切换性能",
+		"url": "http://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/HelloUniApp@v2.3.7.apk"
 	}
 }
