@@ -672,7 +672,7 @@ h5 平台下拉刷新动画，只有 circle 类型。
 |color|HexColor|是||tab 上的文字默认颜色||
 |selectedColor|HexColor|是||tab 上的文字选中时的颜色||
 |backgroundColor|HexColor|是||tab 的背景色||
-|borderStyle|String|否|black|tabbar 上边框的颜色，仅支持 black/white||
+|borderStyle|String|否|black|tabbar 上边框的颜色，仅支持 black/white|App 2.3.4+ 支持其他颜色值|
 |list|Array|是||tab 的列表，详见 list 属性说明，最少2个、最多5个 tab||
 |position|String|否|bottom|可选值 bottom、top|top 值仅微信小程序支持|
 |fontSize|String|否|10px|文字默认大小|App 2.3.4+|
@@ -698,7 +698,7 @@ h5 平台下拉刷新动画，只有 circle 类型。
 |height|String|否|50px|中间按钮的高度，可以大于 tabBar 高度，达到中间凸起的效果|
 |text|String|否||中间按钮的文字|
 |iconPath|String|否||中间按钮的图片路径|
-|iconWidth|String|否|24px||图片宽度（高度等比例缩放）|
+|iconWidth|String|否|24px|图片宽度（高度等比例缩放）|
 |backgroundImage|String|否||中间按钮的背景图片路径|
 
 midButton没有pagePath，需监听点击事件，自行处理点击后的行为逻辑。监听点击事件为调用API：uni.onTabBarMidButtonTap，详见[https://uniapp.dcloud.io/api/ui/tabbar?id=ontabbarmidbuttontap](https://uniapp.dcloud.io/api/ui/tabbar?id=ontabbarmidbuttontap)

@@ -1,4 +1,4 @@
-如关心App端案例，注意uni-app编译到App时，使用了DCloud的5+App引擎，拥有众多案例（包括中国邮政、中国工商、湖北银行、360等），有3亿手机用户在使用基于5+引擎开发的应用。详见[https://dcloud.io/case/](https://dcloud.io/case/)
+如关心App端案例，注意uni-app编译到App时，其实是使用了DCloud的5+App引擎，该引擎拥有众多案例（包括中国邮政、中国工商、湖北银行、360等），有3亿手机用户在使用基于5+引擎开发的应用。详见[https://dcloud.io/case/](https://dcloud.io/case/)
 
 uni-app已经有几十万开发者，是开发者数量和案例最丰富的多端开发框架。
 我们相信还有更多优秀案例，没有被我们采集到，欢迎大家到[项目案例征集](https://github.com/dcloudio/uni-app/issues/6)提交。
@@ -175,7 +175,9 @@ uni-app已经有几十万开发者，是开发者数量和案例最丰富的多�
 
 **波比英语课堂：**幼儿英语启蒙神器培养国际宝宝。[App、小程序通用链接](http://m3w.cn/bbyykt)
 
-**桂聘：** 广西区域招聘，随时随地找工作，[Android和iOS](http://www.guipin.com/jihui/)
+**桂聘：**广西区域招聘。[Android和iOS](http://www.guipin.com/jihui/)
+
+**新疆包邮：**新疆网民的专属导购APP。[Android](https://android.myapp.com/myapp/detail.htm?apkName=com.h5415379.wux)、[iOS](https://apps.apple.com/cn/app/%E6%96%B0%E7%96%86%E5%8C%85%E9%82%AE/id1433935701)
 
 **课呱呱：**在线学习好工作。[App、小程序、H5通用链接](http://m3w.cn/__uni__b19209a)
 
@@ -193,6 +195,8 @@ uni-app已经有几十万开发者，是开发者数量和案例最丰富的多�
 
 **共青团全国青少年弘扬中华优秀传统文化交流展示活动专题网站：**[同时适配PC和手机版的H5](https://chuancheng.xwhdw.com/)
 
+**北京财政局某报考系统：**[H5](http://czj.beijing.gov.cn/kjbmh5)
+
 **上海宣传系统e支部：**[H5](http://ezb.shxc.gov.cn/eParty/#/)
 
 **广西国税：**[H5](http://www.gxgs.gov.cn:7701/#/)
@@ -203,7 +207,7 @@ uni-app已经有几十万开发者，是开发者数量和案例最丰富的多�
 
 **江苏公安网上政工慰问：**[H5](https://jxt.jsga.gov.cn:10006/app/njqxgzzs/zgww/#/)
 
-**杭州智安通：*[H5](https://hzjjzat.citydo.com.cn/vehicle-test)
+**杭州智安通：**[H5](https://hzjjzat.citydo.com.cn/vehicle-test)
 
 **深圳福田区爱福田：**[H5](https://ifutian.szft.gov.cn/masterSecond/)
 
@@ -345,7 +349,7 @@ uni-app已经有几十万开发者，是开发者数量和案例最丰富的多�
 
 **卡邦：**一款集云智能消费管理系统、全国落地POS管理系统、大数据信用评估系统为三位一体的综合管理平台类app，[H5](http://h5kb.d5x319.cn)。
 
-**法保网：**一款提供法律服务app，[iOS](https://itunes.apple.com/cn/app/id1453634358)。
+**法保网：**一款提供法律服务app，[iOS](https://itunes.apple.com/cn/app/id1453634358)、[Android](https://android.myapp.com/myapp/detail.htm?apkName=com.lawprotect)。
 
 **遂宁之窗：**快速获取遂宁信息。[Android](http://index.scsn.cn/Appurl_AndroidVer.html)、[iOS](https://itunes.apple.com/cn/app/%E9%81%82%E5%AE%81%E4%B9%8B%E7%AA%97/id1435590219?mt=8)
 
@@ -466,6 +470,17 @@ uni-app已经有几十万开发者，是开发者数量和案例最丰富的多�
 **小米手环4自定义表盘软件：** [Android](https://www.coolapk.com/apk/tech.pingx.watchface)、[H5](http://watchface.pingx.tech/h5/)
 
 **斗豆侠：**购物App。[iOS](https://apps.apple.com/cn/app/id1395120441)、[Android](https://obs.myhwclouds.com/vipbean/xgyx_guns/APK/yq.apk)
+
+**RUCY：**衣着搭配。[Android](https://appstore.huawei.com/app/C101136185)、[iOS](https://apps.apple.com/cn/app/rucy/id1479275199)
+
+**BookChat：**通用电子书应用。[iOS](https://apps.apple.com/cn/app/id1481932361)、[Android](https://www.pgyer.com/bookchat-app)
+
+**乐猪租房：**租房网站和小程序。[h5](https://h5.lezf.com/)、微信、支付宝、百度、头条搜索 乐猪租房
+
+**稀饭旅行小程序：**微信、百度搜索 稀饭旅行
+
+**吾爱街机：**可在小程序玩街机游戏。微信小程序搜索 吾爱街机
+
 
 
 #### 更多小程序案例（可在微信小程序中搜索）@wx-more
