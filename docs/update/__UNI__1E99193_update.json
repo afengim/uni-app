@@ -8,9 +8,9 @@
 		"url": "https://www.pgyer.com/uni-news"
 	},
 	"Android":{
-		"version": "1.0.8",
-		"title": "Hello News更新",
-		"note": "优化Android窗体动画popin/popout的效率",
-		"url": "https://img-cdn-qiniu.dcloud.net.cn/uniapp/news@v1.0.8.apk"
+		"version": "2.4.0",
+		"title": "uni-app 新闻模板更新",
+		"note": "增加tab选中线",
+		"url": "https://dcloud-img.oss-cn-hangzhou.aliyuncs.com/guide/news/news_v2.4.0.apk"
 	}
 }
