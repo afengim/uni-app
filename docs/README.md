@@ -1,8 +1,9 @@
+
 ```uni-app``` 是一个使用 [Vue.js](https://vuejs.org/) 开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、H5、以及各种小程序（微信/支付宝/百度/头条/QQ/钉钉）等多个平台。
 
 即使不跨端，```uni-app```同时也是更好的小程序开发框架。详见[评测](https://ask.dcloud.net.cn/article/35947)
 
-`DCloud`公司拥有370万开发者用户，旗下```uni-app```有5万+案例、800款插件、50+微信/qq群，并且被阿里小程序工具内置（[详见](https://docs.alipay.com/mini/ide/0.70-stable)），开发者可以放心选择。
+`DCloud`公司拥有370万开发者用户，旗下```uni-app```有5万+案例、900款插件、50+微信/qq群，并且被阿里小程序工具内置（[详见](https://docs.alipay.com/mini/ide/0.70-stable)），开发者可以放心选择。
 
 <div class="quick">
     <h3 id="快速体验"><a href="/README?id=%e5%bf%ab%e9%80%9f%e4%bd%93%e9%aa%8c" data-id="快速体验" class="anchor"><span>快速体验</span></a></h3>
@@ -60,7 +61,7 @@
 
 我们精心准备了一个简单的十分钟介绍视频，方便你快速了解```uni-app```的主要特征：
 
-<video id="video" onplay="videoPlay()" preload="none" controls="controls" width="100%" poster="https://img-cdn-qiniu.dcloud.net.cn/uniapp/doc/poster.png" src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/doc/uni-app20190127.mp4"></video>
+<video id="video" onplay="videoPlay()" preload="none" controls="controls" width="100%" poster="https://img-cdn-qiniu.dcloud.net.cn/uniapp/doc/poster.png" src="https://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/%E7%AC%AC1%E8%AE%B2%EF%BC%88uni-app%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D%EF%BC%89-%20DCloud%E5%AE%98%E6%96%B9%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B@20181126.mp4"></video>
 
 ### 为什么要选择uni-app？
 
@@ -73,7 +74,7 @@
       </div>
       <div class="uniapp-home-content-item-header">
         <h5 class="uniapp-home-content-item-title">开发者/案例数量更多</h5>
-        <p class="uniapp-home-content-item-text">5万+案例、800+插件、50+微信/qq群、更高的百度指数</p>
+        <p class="uniapp-home-content-item-text">5万+案例、900+插件、50+微信/qq群、更高的百度指数</p>
         <p class="uniapp-home-content-item-text">跨端完善度更高，真正落地的提高生产力</p>
       </div>
     </div>
