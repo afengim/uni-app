@@ -2,9 +2,9 @@
 	"name": "Hello uniapp",
 	"appid":"__UNI__HelloUniApp",
 	"iOS":{
-		"version": "1.5.1",
+		"version": "2.4.3",
 		"title": "Hello uni-app更新",
-		"note": "优化 tabbar\n优化 社区首页",
+		"note": "新版V3框架, 提升启动速度",
 		"url": "https://itunes.apple.com/cn/app/hello-uni-app/id1417078253?mt=8"
 	},
 	"Android":{
