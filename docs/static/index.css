@@ -315,6 +315,63 @@ body[data-page="/platform.md"] h4 {
 	max-width: 100%;
 }
 
+/* hover 显示图片或者二维码 */
+.scan-code {
+  position: relative;
+  cursor: pointer;
+}
+
+.scan-code-hover {
+  display: none;
+  background: #FFFFFF;
+  position: absolute;
+  top: 40px;
+  left: 50px;
+  width: 200px;
+}
+.scan-code:hover .scan-code-hover {
+  display: block;
+}
+.scan-code-hover img {
+  width: 100%;
+}
+.scan-code-hover .scan-code-hover-box {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 15px;
+  box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.2);
+}
+
+.scan-code .scan-code-hover::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  transform: rotate(45deg);
+  z-index: -1;
+  box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.2);
+}
+.scan-code .scan-code-hover::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  transform: rotate(45deg);
+
+}
+
 .post-wrapper {
 	display: flex;
 }
