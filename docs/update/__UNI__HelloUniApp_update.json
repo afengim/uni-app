@@ -8,9 +8,9 @@
 		"url": "https://itunes.apple.com/cn/app/hello-uni-app/id1417078253?mt=8"
 	},
 	"Android":{
-		"version": "2.4.7",
+		"version": "2.5.0",
 		"title": "Hello uni-app更新",
-		"note": "新版 Canvas 动画示例",
-		"url": "http://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/HelloUniApp@v2.4.7.apk"
+		"note": "新增广告演示",
+		"url": "http://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/HelloUniApp@v2.5.0.apk"
 	}
 }
