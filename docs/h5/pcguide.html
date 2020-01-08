@@ -51,14 +51,14 @@
 						}
 						
 						function copy(id, attr) {
-						    let target = null;
+						    var target = null;
 						
 						    if (attr) {
 						        target = document.createElement('div');
 						        target.id = 'tempTarget';
 						        target.style.opacity = '0';
 						        if (id) {
-						            let curNode = document.querySelector('#' + id);
+						            var curNode = document.querySelector('#' + id);
 						            target.innerText = curNode[attr];
 						        } else {
 						            target.innerText = attr;
@@ -69,7 +69,7 @@
 						    }
 						
 						    try {
-						        let range = document.createRange();
+						        var range = document.createRange();
 						        range.selectNode(target);
 						        window.getSelection().removeAllRanges();
 						        window.getSelection().addRange(range);
