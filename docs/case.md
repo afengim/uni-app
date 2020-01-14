@@ -172,7 +172,7 @@ DCloud有380万开发者，[uni统计](https://tongji.dcloud.net.cn/)覆盖手�
 
 <div class="scan-code">
  <div class="scan-code-box">
-   <strong>vivo会员官方小程序：</strong> 微信小程序搜索 "vivo会员"，或鼠标移此查看 <span class="scan-code-text">支付宝小程序码</span>
+   <strong>vivo会员官方小程序：</strong> 微信小程序搜索 "vivo会员"，或鼠标移此查看 <span class="scan-code-text">微信小程序码</span>
    <div class="scan-code-hover">
       <div class="scan-code-hover-box">
         <img src="https://img.cdn.aliyun.dcloud.net.cn/uni-app/vivovip.jpg" alt="二维码获取失败" />
