@@ -1,9 +1,8 @@
 * [介绍](README.md)
 * [框架](collocation/pages.md)
 * [组件](component/README.md)
-* [uniCloud](uniCloud/README.md)
 * [API](api/README.md)
-<!-- * [uniCloud](uniCloud/README.md) -->
+* [uniCloud](uniCloud/README.md)
 * [其它规范](javascript:;)
   - [App扩展规范HTML5 Plus](http://www.html5plus.org/doc/h5p.html)
   - [微信小程序](https://developers.weixin.qq.com/miniprogram/dev/framework/)
