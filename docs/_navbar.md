@@ -1,6 +1,7 @@
 * [介绍](README.md)
 * [框架](collocation/pages.md)
 * [组件](component/README.md)
+* [uniCloud](uniCloud/README.md)
 * [API](api/README.md)
 <!-- * [uniCloud](uniCloud/README.md) -->
 * [其它规范](javascript:;)
