@@ -3378,7 +3378,7 @@
 				var sidebarUl = sidebarDocument.querySelector(".sidebar-nav-ul");
 				var sidebarLis = sidebarDocument.querySelectorAll(".sidebar-nav-ul>li");
 
-				var navLists = ["", "collocation", "component", "api"],
+				var navLists = ["", "collocation", "component", "api", "uniCloud"],
 					navList = location.pathname.split("/"),
 					mdName = navList[navList.length - 1];
 				var navIndex = ~navLists.indexOf(navList[1]) ? navLists.indexOf(navList[1]) : 0;
