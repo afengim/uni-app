@@ -7,7 +7,7 @@ var indexs = [];
 // 忽略一些不必要文件和目录
 var ignores = [
 	'.nojekyll', '.svn', 'mpvue', 'nativeUI',
-	'node_modules', 'package.json', 'package-lock.json', '_navbar.md', '_sidebar.md',
+	'node_modules', 'package.json', 'package-lock.json', '_navbar.md', '_sidebar.md', 'release.md',
 	'static', 'scripts', 'backup', 'ssr.html', 'h5',
 	'demo', 'update', 'tuku'
 ];
