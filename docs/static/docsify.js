@@ -1,4 +1,11 @@
 (function() {
+  // :id 和 alias都不好使，先自己实现一个 by:wyq
+	var idAlias = {
+		'/uniCloud/quickstart': {
+			'db-init': '使用db_initjson初始化项目数据库'
+		}
+	}
+
 	/**
 	 * Create a cached version of a pure function.
 	 */
@@ -530,7 +537,7 @@
 			} else {
 				url += '?timestamp=' + oldCatchTime;
 			}
-			// fixed by hdx 修改参数拼接问题 
+			// fixed by hdx 修改参数拼接问题
 			url = url.replace(/\?/g, "&").replace(/\&/, "?");
 		} catch (error) {
 
@@ -3848,8 +3855,12 @@
 		if (!id) {
 			return
 		}
+		var toId = id
+		if(idAlias[path] && idAlias[path][id]) {
+			toId = idAlias[path][id]
+		}
 
-		var section = find('#' + id);
+		var section = find('#' + toId);
 		section && scrollTo(section);
 
 		var li = nav[getNavKey(path, id)];
@@ -4045,7 +4056,7 @@
 		//     el.setAttribute('href', nameLink);
 		//   } else if (typeof nameLink === 'object') {
 		//     var match = Object.keys(nameLink).filter(function (key) { return path.indexOf(key) > -1; })[0];
-		// 
+		//
 		//     el.setAttribute('href', nameLink[match]);
 		//   }
 	}
