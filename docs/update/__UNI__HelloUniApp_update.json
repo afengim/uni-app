@@ -8,9 +8,9 @@
 		"url": "https://itunes.apple.com/cn/app/hello-uni-app/id1417078253?mt=8"
 	},
 	"Android":{
-		"version": "2.5.3",
+		"version": "2.5.10",
 		"title": "Hello uni-app更新",
-		"note": "优化广告显示时机",
-		"url": "http://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/HelloUniApp@v2.5.3.apk"
+		"note": "新增激励视频广告API示例",
+		"url": "http://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/HelloUniApp@v2.5.10.apk"
 	}
 }
