@@ -2,7 +2,8 @@
   // :id 和 alias都不好使，先自己实现一个 by:wyq
 	var idAlias = {
 		'/uniCloud/quickstart': {
-			'db-init': '使用db_initjson初始化项目数据库'
+			'db-init': '使用db_initjson初始化项目数据库',
+			'H5中使用unicloud': 'H5中使用uniCloud'
 		}
 	}
 
