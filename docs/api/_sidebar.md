@@ -130,6 +130,9 @@
   * [广告](api/other/advertisement.md)
 <li></li>
 <div class="contact-box">
+  <a href="//dcloud.io/ncp.html" target="_blank" class="contact-item" style="margin-top:5px;">
+  	<img src="//img.cdn.aliyun.dcloud.net.cn/uni-app/uniCloud/xinguanlogo.png"/>
+  </a>
   <a href="//ask.dcloud.net.cn/explore/" target="_blank" class="contact-item">
   	<img src="//img-cdn-qiniu.dcloud.net.cn/uniapp/doc/d@2x.png" width="20" height="20"/>
   	<div class="contact-smg">
