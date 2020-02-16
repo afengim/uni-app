@@ -3,7 +3,7 @@
 	var idAlias = {
 		'/uniCloud/quickstart': {
 			'db-init': '使用db_initjson初始化项目数据库',
-			'H5中使用unicloud': 'H5中使用uniCloud'
+			'useinh5': 'H5中使用unicloud'
 		}
 	}
 
