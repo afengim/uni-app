@@ -4,6 +4,9 @@
 		'/uniCloud/quickstart': {
 			'db-init': '使用db_initjson初始化项目数据库',
 			'useinh5': 'H5中使用unicloud'
+		},
+		'/uniCloud/authentication': {
+			'auth-anonymously': '匿名登录'
 		}
 	}
 
