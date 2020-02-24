@@ -11,10 +11,12 @@
 * [高效开发技巧](snippet.md)
 * [性能优化建议](performance.md)
 * [开放生态](ecosystem.md)
+* [从其他项目转uni-app](translate.md)
+* [混合开发](hybrid.md)
+* [uni小程序sdk](https://ask.dcloud.net.cn/docs/#https://ask.dcloud.net.cn/article/36941)
 * [运营服务](cloud.md)
 * [案例](case.md)
 * [开源项目资源汇总](casecode.md)
-* [从其他项目转uni-app](translate.md)
 * [选型评估指南](select.md)
 * [常见问题](faq.md)
 * [更新日志](release.md)
@@ -24,19 +26,10 @@
   <li class="show-sponsor-in-phone"><a href="//dev.dcloud.net.cn/wish/?channel=uniapp" target="__blank">需求墙</a></li>
   <li class="show-sponsor-in-phone"><a href="//dev.dcloud.net.cn/sponsor/?channel=uniapp" target="__blank">赞助我们</a></li>
 <div class="contact-box">
-  <a href="//dcloud.io/ncp.html" target="_blank" class="contact-item" style="margin-top:5px;">
-  	<img style="margin:0;width:100%;" src="//img.cdn.aliyun.dcloud.net.cn/uni-app/uniCloud/xinguanlogo.png"/>
-  </a>
   <a href="//ask.dcloud.net.cn/explore/" target="_blank" class="contact-item">
   	<img src="//img-cdn-qiniu.dcloud.net.cn/uniapp/doc/d@2x.png" width="20" height="20"/>
   	<div class="contact-smg">
   		<div>论坛</div>
-  	</div>
-  </a>
-  <a href="https://tongji.dcloud.net.cn/" target="_blank" class="contact-item">
-  	<img src="//img-cdn-qiniu.dcloud.net.cn/uniapp/doc/uni-tongji-icon.png" width="20" height="20"/>
-  	<div class="contact-smg">
-  		<div>uni统计</div>
   	</div>
   </a>
 	<div class="contact-item">
@@ -48,10 +41,10 @@
 		</div>
 	</div>
 	<div class="contact-item">
-    <img src="//img-cdn-qiniu.dcloud.net.cn/uniapp/doc/qq@2x.png" width="20" height="20"/>
-    <div class="contact-smg">
-       <div>官方QQ交流群</div>
-    <div>群11：296811328 &nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=730a560eaea916a912d0de1bf80adf2e25ebde12dbc1b28a37fb94b3a5ecfb70">点此加入</a></div>
+	  <img src="//img-cdn-qiniu.dcloud.net.cn/uniapp/doc/qq@2x.png" width="20" height="20"/>
+	  <div class="contact-smg">
+	     <div>官方QQ交流群</div>
+	  <div>群11：296811328 &nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=730a560eaea916a912d0de1bf80adf2e25ebde12dbc1b28a37fb94b3a5ecfb70">点此加入</a></div>
 		<div>群35：713420817（2000人已满）</div>
 		<div>群34：530305531（2000人已满）</div>
 		<div>群33：498071674（2000人已满）</div>
@@ -87,8 +80,8 @@
 		<div>群3：773794803（1000人已满） </div>
 		<div>群2：901474938（1000人已满） </div>
 		<div>群1：531031261（1000人已满）</div>
-    </div>
-  </div>
+	  </div>
+	</div>
   <div class="contact-item">
   	<img src="//img-cdn-qiniu.dcloud.net.cn/uniapp/doc/weixin@2x.png" width="20" height="20"/>
   	<div class="contact-smg">
