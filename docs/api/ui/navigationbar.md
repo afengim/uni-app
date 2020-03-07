@@ -22,7 +22,7 @@ uni.setNavigationBarTitle({
 
 ### uni.setNavigationBarColor(OBJECT)
 
-设置页面导航条颜色。
+设置页面导航条颜色。**如果需要进入页面就设置颜色，请在onReady里面执行。**
 
 **平台差异说明**
 
