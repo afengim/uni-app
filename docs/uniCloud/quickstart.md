@@ -113,7 +113,7 @@ module.exports = {
 const {
   secret,
   getVersion
-} = require('utils')
+} = require('hello-common')
 exports.main = async (event, context) => {
   let version = getVersion()
   return {
