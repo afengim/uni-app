@@ -2,9 +2,9 @@
 	"name": "Hello uniapp",
 	"appid":"__UNI__HelloUniApp",
 	"iOS":{
-		"version": "2.5.3",
+		"version": "2.6.6",
 		"title": "Hello uni-app更新",
-		"note": "新增激励视频广告API示例",
+		"note": "优化社区",
 		"url": "https://itunes.apple.com/cn/app/hello-uni-app/id1417078253?mt=8"
 	},
 	"Android":{
