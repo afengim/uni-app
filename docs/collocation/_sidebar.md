@@ -23,6 +23,12 @@
   		<div>论坛</div>
   	</div>
   </a>
+  <a href="https://uniad.dcloud.net.cn" target="_blank" class="contact-item">
+    <img src="//img.cdn.aliyun.dcloud.net.cn/uni-app/uniad-520.png" width="20" height="20"/>
+    <div class="contact-smg">
+      <div>uniAD</div>
+    </div>
+  </a>
   <a href="https://tongji.dcloud.net.cn/" target="_blank" class="contact-item">
     <img src="//img-cdn-qiniu.dcloud.net.cn/uniapp/doc/uni-tongji-icon.png" width="20" height="20"/>
     <div class="contact-smg">
