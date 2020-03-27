@@ -22,7 +22,6 @@
   * [腾讯云](uniCloud/policy-tcb.md)
 <!-- * [阿里云](uniCloud/policy-ali.md) -->
 * [更新日志](uniCloud/release.md)
-
 <li></li>
 <div class="contact-box">
   <a href="//dcloud.io/ncp.html" target="_blank" class="contact-item" style="margin-top:5px;">

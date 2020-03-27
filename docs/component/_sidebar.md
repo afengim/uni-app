@@ -87,6 +87,7 @@
   * [page-meta](component/page-meta.md)
 * [配置小程序插件](component/mp-weixin-plugin.md)
 * [原生组件说明](component/native-component.md)
+<li></li>
 <div class="contact-box">
   <a href="//dcloud.io/ncp.html" target="_blank" class="contact-item" style="margin-top:5px;">
     <img style="margin:0;width:100%;" src="//img.cdn.aliyun.dcloud.net.cn/uni-app/uniCloud/xinguanlogo.png"/>

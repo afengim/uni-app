@@ -133,7 +133,6 @@
   * [调试](api/other/set-enable-debug.md)
   * [获取第三方平台数据](api/other/get-extconfig.md)
   * [广告](api/other/advertisement.md)
-
 <li></li>
 <div class="contact-box">
   <a href="//dcloud.io/ncp.html" target="_blank" class="contact-item" style="margin-top:5px;">
