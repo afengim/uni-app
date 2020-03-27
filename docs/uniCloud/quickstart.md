@@ -1,7 +1,7 @@
 ## 创建uniCloud项目
   
   - 在 [HBuilderX 2.5.8+](https://www.dcloud.io/hbuilderx.html) 新建项目，选择uni-app项目，并勾选`启用uniCloud`
-  - 在右侧选择服务供应商（自`HBuilderX 2.6.7+`起开放腾讯云）
+  - 在右侧选择服务供应商（自`HBuilderX 2.6.7+`起开放腾讯云，目前腾讯云处于邀请试用阶段，如需试用可以发送邮件到`service@dcloud.io`，邮件内容需包括要试用腾讯云的DCloud账号）
 
 ![创建uniCloud项目](https://img.cdn.aliyun.dcloud.net.cn/uni-app/uniCloud/create-project.png)
 
@@ -314,6 +314,6 @@ H5前端js访问云函数，涉及跨域问题，导致前端js无法连接云�
 - 早期阿里云的云函数的初次冷启动较慢，表现为某个云函数第一次被调用时联网时间较长，可能要5秒左右。第二次即可正常。此问题阿里云已优化，重新上传部署云函数后生效。
 - web控制台网址：[http://unicloud.dcloud.net.cn](http://unicloud.dcloud.net.cn)，在HX中对云函数目录点右键，或者在帮助菜单中，均有入口链接。
 
-<!-- **注意**
-- 服务提供商为腾讯云时，需要开发者手动去管理控制台开启匿名登录[详情](/uniCloud/authentication#匿名登录) -->
+对 uniCloud 使用有疑问，欢迎加入 uniCloud 开发交流群讨论：1012245137 <a href="//shang.qq.com/wpa/qunwpa?idkey=36ff837111d79a4e90e5fcd6185ec684be4fc276eb57259e08339512709d39fe">点此加入</a>
+
 
