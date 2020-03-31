@@ -5,8 +5,7 @@ var START_TEXT = '<div class="contact-box">';
 var targetSidebarList = [
 	'./api/_sidebar.md',
 	'./component/_sidebar.md',
-	'./collocation/_sidebar.md',
-	'./uniCloud/_sidebar.md'
+	'./collocation/_sidebar.md'
 ];
 
 fs.readFile('./_sidebar.md', 'utf8', function(error, result) {
