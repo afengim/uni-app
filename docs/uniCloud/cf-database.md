@@ -189,7 +189,7 @@ const collection = db.collection('user');
 let res = await collection.add({
   name: 'Ben'
 })
-// 批量插入数据
+// 批量插入数据，腾讯云暂不支持
 let res = await collection.add([{
   name: 'Alex'
 },{
@@ -199,8 +199,9 @@ let res = await collection.add([{
 }])
 // res.inserted // 插入成功条数
 // res.result // 阿里云特有，批量插入返回的所有记录 id
-// res.failIndexes // 腾讯云特有，插入失败的记录的下标
 ```
+
+<!-- // res.failIndexes // 腾讯云特有，插入失败的记录的下标 -->
 
 **Tips**
 
@@ -586,6 +587,12 @@ collection.where().remove()
 const dbCmd = db.command
 let res = await collection.where({
   a: dbCmd.gt(2)
+}).remove()
+
+// 清理全部数据
+const dbCmd = db.command
+let res = await collection.where({
+  _id: dbCmd.exists(true)
 }).remove()
 ```
 
