@@ -1,14 +1,4 @@
 (function() {
-  // :id 和 alias都不好使，先自己实现一个 by:wyq
-	var idAlias = {
-		'/uniCloud/quickstart': {
-			'db-init': '使用db_initjson初始化项目数据库',
-			'useinh5': 'H5中使用unicloud'
-		},
-		'/uniCloud/authentication': {
-			'auth-anonymously': '匿名登录'
-		}
-	}
 
 	/**
 	 * Create a cached version of a pure function.
@@ -3860,9 +3850,6 @@
 			return
 		}
 		var toId = id
-		if(idAlias[path] && idAlias[path][id]) {
-			toId = idAlias[path][id]
-		}
 
 		var section = find('#' + toId);
 		section && scrollTo(section);
