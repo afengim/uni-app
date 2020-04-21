@@ -66,6 +66,9 @@
 			} else if (/swan/i.test(userAgent)) {
 				// 百度小程序 JS-SDK 如果不需要兼容百度小程序，则无需引用此 JS 文件。
 				document.write('<script type="text/javascript" src="https://b.bdstatic.com/searchbox/icms/searchbox/js/swan-2.0.18.js"><\/script>');
+			} else if (/quickapp/i.test(userAgent)) {
+				// quickapp
+				document.write('<script type="text/javascript" src="https://quickapp/jssdk.webview.min.js"><\/script>');
 			}
 			if (!/toutiaomicroapp/i.test(userAgent)) {
 				document.querySelector('.post-message-section').style.visibility = 'visible';
