@@ -122,14 +122,14 @@
 	  <img src="//img-cdn-qiniu.dcloud.net.cn/uniapp/doc/qq@2x.png" width="20" height="20"/>
 	  <div class="contact-smg">
 	     <div>官方QQ交流群</div>
-	  <div>群29：202965481 &nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=8d98a109ecac111e87f99e2b24eb67b75331f575b820bb47923781912ecbaa7a">点此加入</a></div>
+	  <div>群1：531031261 &nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=d3076db368d34b58ec6872a0007061f4c568227e96a98655ace101aa43332816">点此加入</a></div>
 		<div>群35：713420817（2000人已满）</div>
 		<div>群34：530305531（2000人已满）</div>
 		<div>群33：498071674（2000人已满）</div>
 		<div>群32：166188631（2000人已满）</div>
 		<div>群31：567471669（2000人已满）</div>
 		<div>群30：371046920（2000人已满）</div>
-		<!-- <div>群29：202965481（2000人已满）</div> -->
+		<div>群29：202965481（2000人已满）</div>
 		<div>群28：166188776（2000人已满）</div>
 		<div>群27：811363410（2000人已满）</div>
 		<div>群26：147867597（2000人已满）</div>
@@ -157,7 +157,7 @@
 		<div>群4：942702595（2000人已满）</div>
 		<div>群3：773794803（1000人已满） </div>
 		<div>群2：901474938（1000人已满） </div>
-		<div>群1：531031261（1000人已满）</div>
+		<!-- <div>群1：531031261（2000人已满）</div> -->
 	  </div>
 	</div>
   <div class="contact-item">
