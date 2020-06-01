@@ -345,7 +345,7 @@ body[data-page="/platform.md"] h4 {
   background: #FFFFFF;
   position: absolute;
   top: 40px;
-  right: -40px;
+  left: 40px;
   width: 200px;
   z-index: 2;
 }
