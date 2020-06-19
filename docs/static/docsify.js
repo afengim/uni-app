@@ -3445,18 +3445,18 @@
 		 */
 		var matchCurrentPath = false;
 		var tocLength = toc.length;
-		if (activeEl && tocLength) {
-			for (var i = 0; i < tocLength; i++) {
-				if (toc[i].slug === currentPath) {
-					matchCurrentPath = true;
-					break;
-				}
-			}
-		}
-		if (matchCurrentPath) {
-			this.toc = [];
-			return;
-		}
+		// if (activeEl && tocLength) {
+		// 	for (var i = 0; i < tocLength; i++) {
+		// 		if (toc[i].slug === currentPath) {
+		// 			matchCurrentPath = true;
+		// 			break;
+		// 		}
+		// 	}
+		// }
+		// if (matchCurrentPath) {
+		// 	this.toc = [];
+		// 	return;
+		// }
 
 		if (tocLength === 0) {
 			if (!cacheTree[currentPath] || cacheTree[currentPath].length === 0) {
@@ -4604,8 +4604,14 @@
 
 	function eventMixin(proto) {
 		proto.$resetEvents = function() {
-			scrollIntoView(this.route.path, this.route.query.id);
-
+      if(document.readyState === 'complete') {
+        scrollIntoView(this.route.path, this.route.query.id);
+      } else {
+        var that = this
+        window.onload = function(){
+          scrollIntoView(that.route.path, that.route.query.id);
+        }
+      }
 			if (this.config.loadNavbar) {
 				getAndActive(this.router, 'nav');
 			}
