@@ -4601,17 +4601,42 @@
 			lastRoute = vm.route;
 		});
 	}
+  
+  // 修复图片加载完成之前跳转位置不正确的Bug
+  function getEmptyImg(){
+    var emptyImg = [], allMdImg = document.querySelectorAll('.markdown-section img')
+    for (var i = 0; i < allMdImg.length; i++) {
+      var img = allMdImg[i]
+      if(img.height === 0) {
+        emptyImg.push(img)
+      }
+    }
+    return emptyImg
+  }
+
+  function delayedScrollIntoView(path,id){
+    if(document.readyState === 'complete') {
+      var emptyImg = getEmptyImg()
+      if(emptyImg.length === 0) {
+        scrollIntoView(path, id);
+      } else {
+        emptyImg.forEach(function(imgItem){
+          imgItem.onload = function(){
+            delayedScrollIntoView(path,id)
+          }
+        })
+      }
+    } else {
+      window.onload = function(){
+        scrollIntoView(path, id);
+      }
+    }
+  }
 
 	function eventMixin(proto) {
 		proto.$resetEvents = function() {
-      if(document.readyState === 'complete') {
-        scrollIntoView(this.route.path, this.route.query.id);
-      } else {
-        var that = this
-        window.onload = function(){
-          scrollIntoView(that.route.path, that.route.query.id);
-        }
-      }
+      delayedScrollIntoView(this.route.path, this.route.query.id)
+
 			if (this.config.loadNavbar) {
 				getAndActive(this.router, 'nav');
 			}
