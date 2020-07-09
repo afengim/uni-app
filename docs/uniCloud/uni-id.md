@@ -110,6 +110,7 @@ password入库时会自动进行一次sha1加密，不明文存储密码。
 | code	| Number| 是	|错误码，0表示成功			|
 | msg	| String| 是	|详细信息					|
 | token	| String| -	|注册完成自动登录之后返回的token信息|
+| tokenExpired	| String| -	|token过期时间|
 
 **示例代码**
 
@@ -187,6 +188,7 @@ uniCloud.callFunction({
 | code	| Number| 是	|错误码，0表示成功			|
 | msg	| String| 是	|详细信息					|
 | token	| String| -	|登录成功之后返回的token信息|
+| tokenExpired	| String| -	|token过期时间|
 
 **示例代码**
 
@@ -286,6 +288,72 @@ exports.main = async function(event,context) {
 		passwordConfirmation
 	})
 	return res
+}
+```
+
+## 重置密码 @reset-password
+
+用法：`uniID.resetPwd(Object passwordInfo)`
+
+**passwordInfo参数说明**
+
+| 字段								| 类型	| 必填| 说明													|
+| ---									| ---		| ---	| ---														|
+| uid									| String| 是	|用户Id，可以通过checkToken返回	|
+| password					| String| 是	|重置后的密码													|
+
+**响应参数**
+
+| 字段	| 类型	| 必填	| 说明						|
+| ---	| ---	| ---	| ---						|
+| code	| Number| 是	|错误码，0表示成功			|
+| msg	| String| 是	|详细信息					|
+
+**示例代码**
+
+```js
+// 云函数代码
+const uniID = require('uni-id')
+exports.main = async function(event,context) {
+  const payload = await uniID.checkToken(event.uniIdToken)
+  if(payload.code > 0) {
+    return payload
+  }
+  
+	const res = await uniID.resetPwd({
+    uid: payload.uid,
+		password: '12345678'
+	})
+	return res
+}
+```
+
+## 加密密码 @encrypt-password
+
+用法：`uniID.encryptPwd(String password)`
+
+**passwordInfo参数说明**
+
+| 字段								| 类型	| 必填| 说明													|
+| ---									| ---		| ---	| ---														|
+| password					| String| 是	|要加密的字符串													|
+
+**响应参数**
+
+| 字段	| 类型	| 必填	| 说明						|
+| ---	| ---	| ---	| ---						|
+| password	| String| 是	|加密后的字符串		|
+
+**示例代码**
+
+```js
+// 云函数代码
+const uniID = require('uni-id')
+exports.main = async function(event,context) {
+	const encResult = await uniID.encryptPwd('123456')
+	return {
+    encResult
+  }
 }
 ```
 
@@ -466,6 +534,8 @@ exports.main = async function(event,context) {
 | ---	| ---		| ---	| ---							|
 | code| Number| 是	|错误码，0表示成功|
 | msg	| String| 是	|详细信息					|
+| token	| String| -	|登录成功之后返回的token信息|
+| tokenExpired	| String| -	|token过期时间|
 
 **示例代码**
 
@@ -571,7 +641,7 @@ export default {
 | msg	| String| 是	|详细信息					|
 
 ```js
-// 云函数login-by-weixin代码
+// 云函数代码
 const uniID = require('uni-id')
 exports.main = async function(event,context) {
   payload = await uniID.checkToken(event.uniIdToken)
@@ -604,7 +674,7 @@ exports.main = async function(event,context) {
 | msg	| String| 是	|详细信息					|
 
 ```js
-// 云函数login-by-weixin代码
+// 云函数代码
 const uniID = require('uni-id')
 exports.main = async function(event,context) {
   payload = await uniID.checkToken(event.uniIdToken)
@@ -612,6 +682,143 @@ exports.main = async function(event,context) {
   	return payload
   }
 	const res = await uniID.unbindWeixin(payload.uid)
+	return res
+}
+```
+
+## 支付宝登录
+
+用法：`uniID.loginByAlipay(String code);`
+
+**注意**
+
+- 需要在config.json内支付宝平台下配置appid和privateKey（应用私钥）
+- 登录成功之后应持久化存储token，键值为：uniIdToken，`uni.removeStorageSync('uniIdToken')`
+
+**参数说明**
+
+| 字段| 类型	| 必填| 说明							|
+| ---	| ---		| ---	| ---								|
+| code| String| 是	|支付宝登录返回的code	|
+
+**响应参数**
+
+| 字段| 类型	| 必填| 说明						|
+| ---	| ---		| ---	| ---							|
+| code| Number| 是	|错误码，0表示成功|
+| msg	| String| 是	|详细信息					|
+| token	| String| -	|登录成功之后返回的token信息|
+| tokenExpired	| String| -	|token过期时间|
+
+**示例代码**
+
+```js
+// 云函数代码
+const uniID = require('uni-id')
+exports.main = async function(event,context) {
+	const res = await uniID.loginByAlipay(event.code)
+	return res
+}
+```
+
+## 绑定支付宝
+
+用法：`uniID.bindAlipay(Object alipayInfo);`
+
+**alipayInfo 参数说明**
+
+**参数说明**
+
+| 字段| 类型	| 必填| 说明													|
+| ---	| ---		| ---	| ---														|
+| uid	| String| 是	|用户Id，可以通过checkToken返回	|
+| code| String| 是	|支付宝登录返回的code							|
+
+**响应参数**
+
+| 字段| 类型	| 必填| 说明						|
+| ---	| ---		| ---	| ---							|
+| code| Number| 是	|错误码，0表示成功|
+| msg	| String| 是	|详细信息					|
+
+```js
+// 云函数代码
+const uniID = require('uni-id')
+exports.main = async function(event,context) {
+  payload = await uniID.checkToken(event.uniIdToken)
+  if (payload.code && payload.code > 0) {
+  	return payload
+  }
+	const res = await uniID.bindAlipay({
+    uid: payload.uid,
+    code: event.code
+  })
+	return res
+}
+```
+
+## 解绑微信
+
+用法：`uniID.unbindAlipay(String uid);`
+
+**参数说明**
+
+| 字段| 类型	| 必填| 说明													|
+| ---	| ---		| ---	| ---														|
+| uid	| String| 是	|用户Id，可以通过checkToken返回	|
+
+**响应参数**
+
+| 字段| 类型	| 必填| 说明						|
+| ---	| ---		| ---	| ---							|
+| code| Number| 是	|错误码，0表示成功|
+| msg	| String| 是	|详细信息					|
+
+```js
+// 云函数代码
+const uniID = require('uni-id')
+exports.main = async function(event,context) {
+  payload = await uniID.checkToken(event.uniIdToken)
+  if (payload.code && payload.code > 0) {
+  	return payload
+  }
+	const res = await uniID.unbindAlipay(payload.uid)
+	return res
+}
+```
+
+## 更新用户信息
+
+用法：`uniID.updateUser(Object userInfo);`
+
+此接口用于在其他接口不满足需求时使用
+
+**userInfo参数说明**
+
+| 字段| 类型	| 必填| 说明													|
+| ---	| ---		| ---	| ---														|
+| uid	| String| 是	|用户Id，可以通过checkToken返回	|
+| 其余参数	| Any| 是	|要设置的用户信息	|
+
+**响应参数**
+
+| 字段| 类型	| 必填| 说明						|
+| ---	| ---		| ---	| ---							|
+| code| Number| 是	|错误码，0表示成功|
+| msg	| String| 是	|详细信息					|
+
+```js
+// 云函数代码
+const uniID = require('uni-id')
+exports.main = async function(event,context) {
+  payload = await uniID.checkToken(event.uniIdToken)
+  if (payload.code && payload.code > 0) {
+  	return payload
+  }
+	const res = await uniID.updateUser({
+    uid: payload.uid,
+    nickname: 'user nickname'
+  })
 	return res
 }
 ```
@@ -638,6 +845,7 @@ exports.main = async function(event,context) {
 | comment					| String		| 否	| 备注																				|
 | wx_openid				| Object		| 否	| 微信平台openid															|
 | wx_unionid			| String		| 否	| 微信平台uniodid															|
+| ali_openid			| String		| 否	| 支付宝平台openid															|
 | realname_auth		| Object		| 否	| 实名认证信息																|
 | register_date		| Timestamp	| 否	| 注册时间																		|
 | register_ip			| String		| 否	| 注册时 IP 地址															|

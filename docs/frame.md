@@ -91,7 +91,7 @@ import add from '../../common/add.js'
 
 ### css引入静态资源
 
-> `css`文件或`style标签`内引入`css`文件时（scss、less文件同理），只能使用相对路径
+> `css`文件或`style标签`内引入`css`文件时（scss、less文件同理），可以使用相对路径或绝对路径（`HBuilderX 2.6.6-alpha`）
 
 ```css
 /* 绝对路径 */
@@ -137,6 +137,7 @@ background-image: url(../../static/logo.png);
 |onHide|当 ``uni-app`` 从前台进入后台|
 |onError|当 `uni-app` 报错时触发	|
 |onUniNViewMessage|对 ``nvue`` 页面发送的数据进行监听，可参考 [nvue 向 vue 通讯](/use-weex?id=nvue-向-vue-通讯)|
+|onUnhandledRejection|对未处理的 Promise 拒绝事件监听函数|
 
 **注意**
 
@@ -165,6 +166,8 @@ background-image: url(../../static/logo.png);
 |onNavigationBarSearchInputChanged|监听原生标题栏搜索输入框输入内容变化事件|App、H5|1.6.0|
 |onNavigationBarSearchInputConfirmed|监听原生标题栏搜索输入框搜索事件，用户点击软键盘上的“搜索”按钮时触发。|App、H5|1.6.0|
 |onNavigationBarSearchInputClicked|监听原生标题栏搜索输入框点击事件|App、H5|1.6.0|
+|onShareTimeline|监听用户点击右上角转发到朋友圈|微信小程序||
+|onAddToFavorites|监听用户点击右上角收藏|微信小程序||
 
 ``onPageScroll`` 参数说明：
 
@@ -753,6 +756,9 @@ const package = require('packageName')
 
 ## TypeScript 支持
 在 uni-app 中使用 ts 开发，请参考 [Vue.js TypeScript 支持](https://cn.vuejs.org/v2/guide/typescript.html) 说明。
+
+
+类型定义文件由 @dcloudio/types 模块提供，安装后请注意配置 tsconfig.json 文件中的 compilerOptions > types 部分，如需其他小程序平台类型定义也可以安装，如：miniprogram-api-typings、mini-types。对于缺少或者错误的类型定义，可以自行在本地新增或修改并同时报告给官方请求更新。
 
 ### 注意事项
 在 uni-app 中使用 ts 需要注意以下事项。
