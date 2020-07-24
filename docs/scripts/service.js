@@ -65,7 +65,22 @@ portIsOccupied(3000).then((port)=>{
 				var title = html.match(titleReg)
 				if (title && title.length == 2) {
 					title = title[1]
-					html = html.replace(/(<title>)(.*<\/title>)/, `$1${title} - $2`)
+					html = html.replace(/(<title>)(.*?)(<\/title>)/, `$1${title} - ${pathname === '/uniCloud/README'?'uniCloud官网':'$2'}$3`)
+				}
+				
+				let description
+				let keywords
+				if (pathname.startsWith('/uniCloud/')) {
+					description = 'uniCloud 是 DCloud 联合阿里云、腾讯云，为开发者提供的基于 serverless 模式和 js 编程的云开发平台'
+					keywords = 'uniCloud、云开发、DCloud、serverless、小程序云、uni-app'
+				}
+				// 更改description
+				if (description) {
+					html = html.replace(/(<meta name="description" content=").+?(">)/, `$1${description}$2`)
+				}
+				// 更改keywords
+				if (keywords) {
+					html = html.replace(/(<meta name="keywords" content=").+?(">)/, `$1${keywords}$2`)
 				}
 				res.end(html);
 			}).catch(err => {
