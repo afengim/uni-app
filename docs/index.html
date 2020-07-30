@@ -23,6 +23,12 @@
 					'/.*/_navbar.md': '/_navbar.md',
 					'/(.*)/.*/_sidebar.md': '/$1/_sidebar.md'
 				},
+				// id别名，用于修正错误的链接
+				idAlias: {
+					'/uniCloud/cf-database': {
+						'db_init': 'db-init'
+					}
+				},
 				name: 'uni-app',
 				// TODO 如需提交,必须改为 history 模式
 				routerMode: 'history',
@@ -47,6 +53,7 @@
 					function(hook, vm) {
 						hook.beforeEach(function(html){
 							switch (vm.route.path){
+								// 对hx2.8.2内release地址错误的修正，在合适的时机删除
 								case '/uniCloud/local':
 									location.href = '/uniCloud/quickstart?id=runlocal'
 									break;

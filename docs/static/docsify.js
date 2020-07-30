@@ -3850,6 +3850,10 @@
 			return
 		}
 		var toId = id
+		var idAlias = window.$docsify.idAlias || {}
+		if(idAlias[path] && idAlias[path][id]) {
+			toId = idAlias[path][id]
+		}
 
 		var section = find('#' + toId);
 		section && scrollTo(section);
