@@ -63,11 +63,11 @@
 	<div class="contact-item">
 	  <img src="//img-cdn-qiniu.dcloud.net.cn/uniapp/doc/qq@2x.png" width="20" height="20"/>
 	  <div class="contact-smg">
-	     <div>官方QQ交流群</div>
-	  <div>群33：498071674 &nbsp;<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=_I92eKMoCSlGNrNMV-8Do8Uy7pi0CQSj&jump_from=webapi">点此加入</a></div>
+		<div>官方QQ交流群</div>
+		<div>群34：530305531 &nbsp;<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=f_THCoXhKlzKcmb11J22N066PqwH8-WR&jump_from=webapi">点此加入</a></div>
 		<div>群35：713420817（2000人已满）</div>
-		<div>群34：530305531（2000人已满）</div>
-		<!-- <div>群33：498071674（2000人已满）</div> -->
+		<!-- <div>群34：530305531（2000人已满）</div> -->
+		<div>群33：498071674（2000人已满）</div>
 		<div>群32：166188631（2000人已满）</div>
 		<div>群31：567471669（2000人已满）</div>
 		<div>群30：371046920（2000人已满）</div>
