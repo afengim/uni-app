@@ -64,6 +64,266 @@
 ```
 
 
+### 完整调用示例
+
+支持多页面重复调用，可以传入不同广告位，默认处理了Loading状态及快速点击调用问题
+
+```
+<script>
+  import AD from "ad.js"
+
+  export default {
+    data() {
+      return {
+        title: '激励视频广告'
+      }
+    },
+    onReady() {
+      // HBuilderX标准基座真机运行测试激励视频广告位标识（adpid）为：1507000689
+      // adpid: 1507000689 仅用于测试，发布时需要改为广告后台（https://uniad.dcloud.net.cn/）申请的 adpid
+      // 广告后台申请的广告位(adpid)需要自定义基座/云打包/本地打包后生效
+      this._adpid = 1507000689
+
+      // 可选预加载数据
+      // AD.load(this._adpid)
+    },
+    methods: {
+      showAd() {
+        AD.show(this._adpid, (res) => {
+          console.log("onclose")
+          console.log(res)
+
+          // 用户点击了【关闭广告】按钮
+          if (res && res.isEnded) {
+            // 正常播放结束
+            console.log("onClose " + res.isEnded);
+          } else {
+            // 播放中途退出
+            console.log("onClose " + res.isEnded);
+          }
+
+          // 可选预加载下一条广告数据，减少加载等待时间，调用此 API 不会显示loading，不影响业务
+          // AD.load(this._adpid)
+        }, (err) => {
+          // 广告无法显示，输出错误信息，可以采集数据上报以便分析
+          console.log(err)
+        })
+      }
+    }
+  }
+</script>
+```
+
+```
+// ad.js
+class AdHelper {
+
+  constructor() {
+    this._ads = {}
+  }
+
+  load(adpid, onload, onerror) {
+    if (!adpid || this.isBusy(adpid)) {
+      return
+    }
+
+    this.get(adpid).load(onload, onerror)
+  }
+
+  show(adpid, onsuccess, onfail) {
+    if (!adpid || this.isBusy(adpid)) {
+      return
+    }
+
+    var ad = this.get(adpid)
+
+    uni.showLoading({
+      mask: true
+    })
+
+    ad.load(() => {
+      uni.hideLoading()
+      ad.show((e) => {
+        onsuccess && onsuccess(e)
+        // 关闭视频
+      })
+    }, (err) => {
+      uni.hideLoading()
+      onfail && onfail(err)
+    })
+  }
+
+  isBusy(adpid) {
+    return (this._ads[adpid] && this._ads[adpid].isLoading)
+  }
+
+  get(adpid) {
+    if (!this._ads[adpid]) {
+      this._ads[adpid] = new RewardedVideo({
+        adpid: adpid
+      })
+    }
+
+    return this._ads[adpid]
+  }
+}
+
+const eventNames = [
+  'load',
+  'close',
+  'verify',
+  'error'
+]
+
+const EXPIRED_TIME = 1000 * 60 * 30
+const ProviderType = {
+  CSJ: 'csj',
+  GDT: 'gdt'
+}
+
+const RETRY_COUNT = 1
+
+class RewardedVideo {
+  constructor(options = {}) {
+    this._isLoad = false
+    this._isLoading = false
+    this._lastLoadTime = 0
+    this._lastError = null
+    this._retryCount = 0
+
+    this._loadCallback = null
+    this._closeCallback = null
+    this._errorCallback = null
+
+    const rewardAd = this._rewardAd = plus.ad.createRewardedVideoAd(options)
+    rewardAd.onLoad((e) => {
+      this._isLoading = false
+      this._isLoad = true
+      this._lastLoadTime = Date.now()
+
+      this.onLoad()
+    })
+    rewardAd.onClose((e) => {
+      this._isLoad = false
+      this.onClose(e)
+    })
+    rewardAd.onVerify((e) => {
+      // e.isValid
+    })
+    rewardAd.onError(({
+      code,
+      message
+    }) => {
+      this._isLoading = false
+      const data = {
+        code: code,
+        errMsg: message
+      }
+
+      if (code === -5008) {
+        this._loadAd()
+        return
+      }
+
+      if (this._retryCount < RETRY_COUNT) {
+        this._retryCount += 1
+        this._loadAd()
+        return
+      }
+
+      this._lastError = data
+      this.onError(data)
+    })
+  }
+
+  get isExpired() {
+    return (this._lastLoadTime !== 0 && (Math.abs(Date.now() - this._lastLoadTime) > EXPIRED_TIME))
+  }
+
+  get isLoading() {
+    return this._isLoading
+  }
+
+  getProvider() {
+    return this._rewardAd.getProvider()
+  }
+
+  load(onload, onerror) {
+    this._loadCallback = onload
+    this._errorCallback = onerror
+
+    if (this._isLoading) {
+      return
+    }
+
+    if (this._isLoad) {
+      this.onLoad()
+      return
+    }
+
+    this._retryCount = 0
+
+    this._loadAd()
+  }
+
+  show(onclose) {
+    this._closeCallback = onclose
+
+    if (this._isLoading || !this._isLoad) {
+      return
+    }
+
+    if (this._lastError !== null) {
+      this.onError(this._lastError)
+      return
+    }
+
+    const provider = this.getProvider()
+    if (provider === ProviderType.CSJ && this.isExpired) {
+      this._loadAd()
+      return
+    }
+
+    this._rewardAd.show()
+  }
+
+  onLoad(e) {
+    if (this._loadCallback != null) {
+      this._loadCallback()
+    }
+  }
+
+  onClose(e) {
+    if (this._closeCallback != null) {
+      this._closeCallback({
+        isEnded: e.isEnded
+      })
+    }
+  }
+
+  onError(e) {
+    if (this._errorCallback != null) {
+      this._errorCallback(e)
+    }
+  }
+
+  destroy() {
+    this._rewardAd.destroy()
+  }
+
+  _loadAd() {
+    this._isLoad = false
+    this._isLoading = true
+    this._lastError = null
+    this._rewardAd.load()
+  }
+}
+
+export default new AdHelper()
+
+```
+
+
 ### 显示/隐藏
 激励视频广告组件默认是隐藏的，在用户主动触发广告后，开发者需要调用 RewardedVideoAd.show() 进行显示。
 
@@ -265,260 +525,6 @@ code|message|
 - App端聚合的广点通(iOS)：[错误码](https://developers.adnet.qq.com/doc/ios/union/union_debug#%E9%94%99%E8%AF%AF%E7%A0%81)
 - App端聚合的广点通(Android)：[错误码](https://developers.adnet.qq.com/doc/android/union/union_debug#sdk%20%E9%94%99%E8%AF%AF%E7%A0%81)
 
-
-### 已封装好多页面调用示例(仅适用于app平台，注意看注释，根据自己业务需求修改)
-```
-<script>
-  import AdHelper from "ad.js"
-
-  export default {
-    data() {
-      return {
-        title: '激励视频广告'
-      }
-    },
-    onReady() {
-      this._adpid = 1507000689
-      // 可选预加载数据
-      AdHelper.instance.load(this._adpid)
-    },
-    methods: {
-      show() {
-        AdHelper.instance.show(this._adpid, (res) => {
-          console.log("onclose")
-          console.log(res)
-
-          // 用户点击了【关闭广告】按钮
-          if (res && res.isEnded) {
-            // 正常播放结束
-            console.log("onClose " + res.isEnded);
-          } else {
-            // 播放中途退出
-            console.log("onClose " + res.isEnded);
-          }
-
-          // 加载下一条
-          // AdHelper.instance.load(this._adpid)
-        }, (err) => {
-          console.log(err)
-        })
-      }
-    }
-  }
-</script>
-```
-
-```
-// ad.js
-class AdHelper {
-  static get instance() {
-    if (this._instance == null) {
-      this._instance = new AdHelper()
-    }
-    return this._instance
-  }
-
-  constructor() {
-    this._instance = null
-    this._ads = {}
-  }
-
-  load(adpid, onload, onerror) {
-    if (!adpid || this.isBusy(adpid)) {
-      return
-    }
-
-    this.get(adpid).load(onload, onerror)
-  }
-
-  show(adpid, onsuccess, onfail) {
-    if (!adpid || this.isBusy(adpid)) {
-      return
-    }
-
-    var ad = this.get(adpid)
-
-    uni.showLoading({
-      mask: true
-    })
-
-    ad.load(() => {
-      uni.hideLoading()
-      ad.show((e) => {
-        onsuccess && onsuccess(e)
-        // 关闭视频
-      })
-    }, (err) => {
-      uni.hideLoading()
-      onfail && onfail(err)
-    })
-  }
-
-  isBusy(adpid) {
-    return (this._ads[adpid] && this._ads[adpid].isLoading)
-  }
-
-  get(adpid) {
-    if (!this._ads[adpid]) {
-      this._ads[adpid] = new RewardedVideo({
-        adpid: adpid
-      })
-    }
-
-    return this._ads[adpid]
-  }
-}
-
-const eventNames = [
-  'load',
-  'close',
-  'verify',
-  'error'
-]
-
-const EXPIRED_TIME = 1000 * 60 * 30
-const EXPIRED_TEXT = {
-  code: -5008,
-  errMsg: '广告数据已过期，请重新加载'
-}
-const ProviderType = {
-  CSJ: 'csj',
-  GDT: 'gdt'
-}
-
-class RewardedVideo {
-  constructor(options = {}) {
-    this._isLoad = false
-    this._isLoading = false
-    this._lastLoadTime = 0
-    this._lastError = null
-
-    this._loadCallback = null
-    this._closeCallback = null
-    this._errorCallback = null
-
-    const rewardAd = this._rewardAd = plus.ad.createRewardedVideoAd(options)
-    rewardAd.onLoad((e) => {
-      this._isLoading = false
-      this._isLoad = true
-      this._lastLoadTime = Date.now()
-
-      this.onLoad()
-    })
-    rewardAd.onClose((e) => {
-      this._isLoad = false
-      this.onClose(e)
-    })
-    rewardAd.onVerify && rewardAd.onVerify((e) => {
-      // this._dispatchEvent('verify', {
-      //   isValid: e.isValid
-      // })
-    })
-    rewardAd.onError(({
-      code,
-      message
-    }) => {
-      this._isLoading = false
-      const data = {
-        code: code,
-        errMsg: message
-      }
-
-      if (code === -5008) {
-        this._isLoad = false
-      }
-
-      this._lastError = data
-
-      this.onError(data)
-    })
-  }
-
-  get isExpired() {
-    return (this._lastLoadTime !== 0 && (Math.abs(Date.now() - this._lastLoadTime) > EXPIRED_TIME))
-  }
-
-  get isLoading() {
-    return this._isLoading
-  }
-
-  getProvider() {
-    return this._rewardAd.getProvider()
-  }
-
-  load(onload, onerror) {
-    this._loadCallback = onload
-    this._errorCallback = onerror
-
-    if (this._isLoading) {
-      return
-    }
-
-    if (this._isLoad) {
-      this.onLoad()
-      return
-    }
-
-    this._loadAd()
-  }
-
-  show(onclose) {
-    this._closeCallback = onclose
-
-    if (this._isLoading || !this._isLoad) {
-      return
-    }
-
-    if (this._lastError !== null) {
-      this.onError(this._lastError)
-      return
-    }
-
-    const provider = this.getProvider()
-    if (provider === ProviderType.CSJ && this.isExpired) {
-      this._isLoad = false
-      this.onError(EXPIRED_TEXT)
-      return
-    }
-
-    this._rewardAd.show()
-  }
-
-  onLoad(e) {
-    if (this._loadCallback != null) {
-      this._loadCallback()
-    }
-  }
-
-  onClose(e) {
-    if (this._closeCallback != null) {
-      this._closeCallback({
-        isEnded: e.isEnded
-      })
-    }
-  }
-
-  onError(e) {
-    if (this._errorCallback != null) {
-      this._errorCallback(e)
-    }
-  }
-
-  destroy() {
-    this._rewardAd.destroy()
-  }
-
-  _loadAd() {
-    this._isLoad = false
-    this._isLoading = true
-    this._lastError = null
-    this._rewardAd.load()
-  }
-}
-
-export default AdHelper
-
-```
 
 **注意事项**
 - 测试期间请使用测试 `adpid`，参考测试代码，如果无法显示换个时间再试
