@@ -2,7 +2,7 @@
 	"name": "Hello uniapp",
 	"appid":"__UNI__HelloUniApp",
 	"iOS":{
-		"version": "2.7.0",
+		"version": "2.8.9",
 		"title": "Hello uni-app更新",
 		"note": "优化社区",
 		"url": "https://itunes.apple.com/cn/app/hello-uni-app/id1417078253?mt=8"
