@@ -1053,7 +1053,9 @@
 					}
 
 					// table (gfm)
-					if (top && (cap = this$1.rules.table.exec(src))) {
+					// if (top && (cap = this$1.rules.table.exec(src))) {
+					// fix by gsq 支持列表内表格
+					if (cap = this$1.rules.table.exec(src)) {
 						src = src.substring(cap[0].length);
 
 						item = {
