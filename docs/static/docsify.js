@@ -2803,6 +2803,8 @@
 		}
 
 		Prism.languages.js = Prism.languages.javascript;
+		// 将javascript应用于json高亮
+		Prism.languages.json = Prism.languages.javascript;
 
 
 		/* **********************************************
@@ -4607,7 +4609,7 @@
 			lastRoute = vm.route;
 		});
 	}
-  
+
   // 修复图片加载完成之前跳转位置不正确的Bug
   function getEmptyImg(){
     var emptyImg = [], allMdImg = document.querySelectorAll('.markdown-section img')
