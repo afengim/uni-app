@@ -127,7 +127,7 @@ padding {length}：内边距，内容和边框之间的距离，默认值 0。�
 
 
 ##### 边框
-```border-style```设定边框样式，如果四个方向的边框样式不同，可分别设置：
+```border-style``` 设定边框样式，如果四个方向的边框样式不同，可分别设置：
 
 |可选值	|描述					|
 |--		|--						|
@@ -406,7 +406,7 @@ flex {number}：值为 number 类型。
 ## Transition 
 
 ```transition```允许 CSS 的属性值在一定的时间区间内平滑地过渡。
-### transition-property
+#### transition-property
 设置过渡动画的属性名，设置不同样式 ```transition``` 效果的键值对，默认值为空，表示不执行任何过渡效果
 
 
@@ -425,13 +425,13 @@ flex {number}：值为 number 类型。
 
 
 
-### transition-duration
+#### transition-duration
 指定过渡的持续时间 (单位是毫秒)，默认值是 0，表示没有动画效果。
 
-### transition-delay
+#### transition-delay
 指定请求过渡操作到执行过渡之间的时间间隔 (单位是毫秒或者秒)，默认值是 0，表示没有延迟，在请求后立即执行过渡。
 
-### transition-timing-function
+#### transition-timing-function
 描述过渡执行的速度曲线，用于使过渡更为平滑。默认值是 ```ease```。下表列出了所有合法的属性：
 
 
@@ -446,10 +446,7 @@ flex {number}：值为 number 类型。
 
 
 	
-### 示例
-
-
-
+#### 示例
 
 
 ``` html
@@ -525,7 +522,7 @@ flex {number}：值为 number 类型。
 
 
 	
-### 示例
+#### 示例
 
 
 ``` html
