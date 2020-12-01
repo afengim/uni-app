@@ -8,6 +8,7 @@
   * [综述](nvue-outline.md)
   * [样式](nvue-css.md)
   * [API](nvue-api.md)
+  * [事件](nvue-event.md)
 * [使用 HTML5+ 注意事项](use-html5plus.md)
 * [条件编译 解决各端差异](platform.md)
 * [uni-app 跨端开发注意](matter.md)
