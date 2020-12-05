@@ -74,6 +74,7 @@ editor组件目前只有H5、App的vue页面、微信小程序、百度小程序
 		<button type="warn" @tap="undo">撤销</button>
 	</view>
 </template>
+
 <script>
 	export default {
 		data() {
@@ -83,15 +84,15 @@ editor组件目前只有H5、App的vue页面、微信小程序、百度小程序
 		},
 		methods: {
 			onEditorReady() {
-          // #ifdef MP-BAIDU
-          this.editorCtx = requireDynamicLib('editorLib').createEditorContext('editorId');
-          // #endif
-          
-          // #ifdef APP-PLUS || H5 ||MP-WEIXIN
-          uni.createSelectorQuery().select('#editor').context((res) => {
-            this.editorCtx = res.context
-          }).exec()
-          // #endif
+			    // #ifdef MP-BAIDU
+			    this.editorCtx = requireDynamicLib('editorLib').createEditorContext('editorId');
+			    // #endif
+			    
+			    // #ifdef APP-PLUS || H5 ||MP-WEIXIN
+			    uni.createSelectorQuery().select('#editor').context((res) => {
+			      this.editorCtx = res.context
+			    }).exec()
+			    // #endif
 			},
 			undo() {
 				this.editorCtx.undo()
@@ -99,15 +100,18 @@ editor组件目前只有H5、App的vue页面、微信小程序、百度小程序
 		}
 	}
 </script>
+
 <style>
 	.container {
 		padding: 10px;
 	}
+
 	#editor {
 		width: 100%;
 		height: 300px;
 		background-color: #CCCCCC;
 	}
+
 	button {
 		margin-top: 10px;
 	}

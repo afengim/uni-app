@@ -76,7 +76,6 @@ editor 组件对应的 editorContext 实例，可通过 [uni.createSelectorQuery
 
 
 
-
 ## editorContext.format(name, value)
 
 修改样式
